@@ -1,1 +1,240 @@
+It uses important Tkinter components like **Label**, **Button**, **Frame**, and **messagebox**, so your viva will mainly focus on:
+➡️ Understanding Tkinter basics
+➡️ Purpose of widgets and geometry managers
+➡️ Function calling and GUI logic
 
+Here’s a complete list of **viva questions and answers** tailored exactly to your code 👇
+
+---
+
+## 🎯 **Viva Questions and Answers — Welcome Screen GUI (Tkinter)**
+
+---
+
+### 🧠 **1. Basic Concepts**
+
+**Q1. What is Tkinter in Python?**
+**A:** Tkinter is Python’s standard GUI (Graphical User Interface) library used to create windows, buttons, labels, and other graphical components for desktop applications.
+
+---
+
+**Q2. Why do we import `ttk` from tkinter?**
+**A:** `ttk` provides **themed widgets** (like buttons, labels, and frames) that look more modern and professional than basic Tkinter widgets.
+
+---
+
+**Q3. What is the purpose of `messagebox` in this code?**
+**A:** It’s used to display **popup messages** like “Navigating to Login Screen” or “Navigating to Sign Up Screen”.
+
+---
+
+**Q4. What does `root.mainloop()` do?**
+**A:** It starts Tkinter’s **event loop**, which keeps the GUI window running and responsive until the user closes it.
+
+---
+
+**Q5. What is the role of `root.geometry("500x350")`?**
+**A:** It sets the **window size** to 500 pixels wide and 350 pixels tall.
+
+---
+
+**Q6. What does `root.resizable(False, False)` do?**
+**A:** It disables window resizing, so the user cannot change the size of the GUI window.
+
+---
+
+---
+
+### 🎨 **2. GUI Design & Layout**
+
+**Q7. What is the purpose of the `Frame` widget?**
+**A:** A `Frame` acts as a **container** to organize and group related widgets together.
+
+---
+
+**Q8. Why are two frames (`main_frame` and `content_frame`) used in this code?**
+**A:**
+
+* `main_frame` centers the content inside the window.
+* `content_frame` holds all widgets (labels and buttons) neatly grouped together.
+
+---
+
+**Q9. What is the difference between `pack()` and `grid()`?**
+**A:**
+
+* `pack()` arranges widgets in blocks (top, bottom, left, right).
+* `grid()` places widgets in a **table-like row-column layout**.
+
+---
+
+**Q10. What does `expand=True` and `fill="both"` in `pack()` do?**
+**A:**
+
+* `expand=True` allows the frame to take up any extra space available.
+* `fill="both"` lets the frame expand **horizontally and vertically**.
+
+---
+
+**Q11. Why is `wraplength=400` used in the subtitle label?**
+**A:** It ensures that long text wraps automatically to a new line after 400 pixels, preventing it from going outside the window.
+
+---
+
+**Q12. What does `justify="center"` do in the label?**
+**A:** It aligns the wrapped text **in the center** of the label.
+
+---
+
+---
+
+### 🧩 **3. Widgets in the Code**
+
+**Q13. What is the function of the `Label` widget?**
+**A:** It displays **text** on the screen — here used for “Welcome!” and the subtitle.
+
+---
+
+**Q14. What is the `Button` widget used for?**
+**A:** It allows user interaction — clicking triggers a function (e.g., `go_to_login()` or `go_to_signup()`).
+
+---
+
+**Q15. What does `command=go_to_login` mean?**
+**A:** It links the button to the function `go_to_login`, so when the button is clicked, that function executes.
+
+---
+
+**Q16. What happens when the user clicks the “Login” button?**
+**A:** A popup message appears saying “Navigating to Login Screen...”.
+
+---
+
+**Q17. What happens when the user clicks the “Sign Up” button?**
+**A:** A popup message appears saying “Navigating to Sign Up Screen...”.
+
+---
+
+**Q18. What is the use of `padx`, `pady`, `ipadx`, and `ipady`?**
+**A:**
+
+* `padx` / `pady`: Add external space around widgets.
+* `ipadx` / `ipady`: Add **internal padding** (makes buttons appear larger).
+
+---
+
+**Q19. What does the `font=("Arial", 32, "bold")` argument do?**
+**A:** It changes the **font type**, **size**, and **style** (bold) of the text displayed on the label.
+
+---
+
+**Q20. Why are the buttons placed inside another frame (`button_frame`)?**
+**A:** To easily **align them side by side** (using `pack(side="left")`).
+
+---
+
+---
+
+### ⚙️ **4. Functions & Events**
+
+**Q21. What is the purpose of the `go_to_login()` and `go_to_signup()` functions?**
+**A:** They simulate navigation actions. In a real app, they would **switch** the window from the welcome screen to the login or signup page.
+
+---
+
+**Q22. What does `messagebox.showinfo()` do?**
+**A:** It displays an **informational popup window** with a title and a message.
+
+---
+
+**Q23. Can you make these buttons actually open new windows?**
+**A:** Yes, by using:
+
+```python
+tk.Toplevel(root)
+```
+
+to open a new window or destroying the current frame and creating a new one.
+
+---
+
+**Q24. Why is this code called “event-driven programming”?**
+**A:** Because Tkinter runs on **events** — user actions like button clicks trigger specific functions (called event handlers).
+
+---
+
+**Q25. Can multiple widgets use the same function as a command?**
+**A:** Yes, many widgets (like buttons) can share the same function as their command.
+
+---
+
+---
+
+### 💡 **5. Advanced or Conceptual Questions**
+
+**Q26. What would happen if you don’t call `mainloop()`?**
+**A:** The window will **open and immediately close**, because there’s no event loop keeping it running.
+
+---
+
+**Q27. What is the use of `root.title("Welcome to MyApp")`?**
+**A:** It sets the **title** displayed on the window’s title bar.
+
+---
+
+**Q28. What happens if you remove `expand=True` from `pack()`?**
+**A:** The widgets won’t be centered properly — they’ll stick to the top or side of the window.
+
+---
+
+**Q29. Why do we use emoji (👋) in the title label?**
+**A:** To make the interface more friendly and engaging — Tkinter supports basic Unicode emojis.
+
+---
+
+**Q30. What is a placeholder function?**
+**A:** It’s a temporary function used to simulate real behavior (like navigation) until actual functionality is added.
+
+---
+
+**Q31. How can this welcome screen be connected to real login/signup pages?**
+**A:** By replacing the `messagebox.showinfo()` calls with code that:
+
+* **Destroys** the current frame
+* **Creates** a new frame or window containing the login/signup widgets.
+
+---
+
+**Q32. What does `root = tk.Tk()` do?**
+**A:** It creates the **main application window** — the root of all widgets in the program.
+
+---
+
+**Q33. Can we change the background color of the window?**
+**A:** Yes, using:
+
+```python
+root.config(bg="lightblue")
+```
+
+---
+
+**Q34. Why are we using `ttk.Button` instead of `tk.Button`?**
+**A:** `ttk.Button` gives a **modern themed appearance**, whereas `tk.Button` looks older and system-dependent.
+
+---
+
+**Q35. What is meant by `wraplength=400` in the subtitle label?**
+**A:** It wraps the text automatically after 400 pixels, so it fits neatly in the window.
+
+---
+
+---
+
+✅ **Bonus (Short Viva Explanation to Say in 1 Minute)**
+
+> “This program creates a **Welcome Screen GUI** using Tkinter.
+> It has a title label, a subtitle, and two buttons — ‘Login’ and ‘Sign Up’.
+> When a user clicks either button, a popup message appears using `messagebox`.
+> The widgets are placed inside frames using the `pack()` layout for centering.
+> This code demonstrates how to design a simple GUI home page with labels, buttons, and event functions.”
