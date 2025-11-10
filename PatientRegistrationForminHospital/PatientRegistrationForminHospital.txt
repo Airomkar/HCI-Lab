@@ -1,1 +1,39 @@
+🧠 Explanation (For Viva / Oral Exam)
 
+| **Widget / Concept** | **Explanation**                                                       |
+| -------------------- | --------------------------------------------------------------------- |
+| **Tkinter**          | Used to create the GUI (Graphical User Interface).                    |
+| **Label**            | Displays static text like “Name”, “Age”, etc.                         |
+| **Entry**            | Used for single-line user input (Name, Age, Contact).                 |
+| **Text**             | Used for multi-line input like Address.                               |
+| **Radiobutton**      | Lets the user choose one option (Male/Female/Other).                  |
+| **Checkbutton**      | Allows selecting multiple symptoms (e.g., Fever, Cough).              |
+| **Listbox**          | Displays a list of options (Doctor Specializations).                  |
+| **messagebox**       | Displays pop-up notifications (Success, Error).                       |
+| **Functions**        | `submit_form()`, `clear_form()`, and `exit_form()` handle main logic. |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is the purpose of Tkinter in Python?
+A: Tkinter is a standard GUI library used to create desktop-based user interfaces.
+
+Q: What is the difference between Entry and Text widgets?
+A: Entry is used for single-line input, while Text allows multi-line input.
+
+Q: What is the use of a Checkbutton?
+A: It allows the user to select multiple options independently.
+
+Q: What is the purpose of a Listbox?
+A: It displays a list of items from which the user can select one or more options.
+
+Q: What is messagebox used for?
+A: It shows pop-up messages for feedback, errors, or confirmations.
+
+Q: How do you read which item is selected in a Listbox?
+A: Using listbox.curselection() and then listbox.get(index).
+
+Q: What does .get("1.0", END) mean for the Text widget?
+A: It retrieves all text from line 1, character 0 up to the end of the text box.
+
+Q: Can we store patient data in a database?
+A: Yes, we can use Python’s sqlite3 or mysql.connector modules to store it.
