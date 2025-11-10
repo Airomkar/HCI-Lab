@@ -1,146 +1,113 @@
 import tkinter as tk
-from tkinter import ttk  # For a modern look
+from tkinter import ttk
 from tkinter import messagebox
 
 # --- Functions ---
 
-def perform_transfer():
-    """Simulates the fund transfer process."""
+def transfer_funds():
+    """Handles the fund transfer process."""
+    sender_acc = sender_entry.get()
+    receiver_acc = receiver_entry.get()
+    receiver_name = receiver_name_entry.get()
+    amount = amount_entry.get()
+    mode = mode_var.get()
+
+    # --- Validation ---
+    if not all([sender_acc, receiver_acc, receiver_name, amount, mode]):
+        messagebox.showerror("Error", "All fields are required!")
+        return
     
-    # 1. Get data from form
-    from_account = from_account_combo.get()
-    to_account = to_account_entry.get()
-    recipient_name = recipient_name_entry.get()
-    amount_str = amount_entry.get()
-    remarks = remarks_entry.get()
+    if not amount.isdigit() or int(amount) <= 0:
+        messagebox.showerror("Error", "Please enter a valid positive amount.")
+        return
     
-    # --- 2. Validation ---
-    
-    # Check for empty essential fields
-    if not all([from_account, to_account, recipient_name, amount_str]):
-        messagebox.showerror("Error", "Please fill all required fields:\n"
-                                     "- From Account\n"
-                                     "- Recipient Account No.\n"
-                                     "- Recipient Name\n"
-                                     "- Amount")
+    if sender_acc == receiver_acc:
+        messagebox.showerror("Error", "Sender and Receiver Account cannot be same!")
         return
 
-    # Check for a valid amount
-    try:
-        amount = float(amount_str)
-        if amount <= 0:
-            raise ValueError("Amount must be positive.")
-    except ValueError:
-        messagebox.showerror("Error", "Invalid Amount. Please enter a valid number (e.g., 1500.50).")
-        amount_entry.delete(0, tk.END)
-        amount_entry.focus_set()
-        return
-
-    # --- 3. Confirmation (Simulated) ---
-    
-    # Format the message
-    confirm_message = (
-        f"**Please Confirm Transaction:**\n\n"
-        f"**From:** {from_account}\n"
-        f"**To:** {recipient_name} ({to_account})\n"
-        f"**Amount:** ₹{amount:,.2f}\n"  # Format as currency
-        f"**Remarks:** {remarks if remarks else 'None'}\n\n"
-        f"Proceed with transfer?"
+    # --- Success Message ---
+    success_message = (
+        f"Fund Transfer Successful!\n\n"
+        f"From Account: {sender_acc}\n"
+        f"To Account: {receiver_acc}\n"
+        f"Receiver Name: {receiver_name}\n"
+        f"Amount: ₹{amount}\n"
+        f"Mode: {mode}\n"
     )
-    
-    # Show a confirmation dialog
-    is_confirmed = messagebox.askyesno("Confirm Transfer", confirm_message)
-    
-    if is_confirmed:
-        # --- 4. Process (Simulated) ---
-        print(f"Processing transfer of ₹{amount} from {from_account} to {to_account}")
-        
-        messagebox.showinfo("Success", f"Transfer of ₹{amount:,.2f} to {recipient_name} was successful!")
-        
-        # Clear the form
-        clear_form()
-    else:
-        messagebox.showinfo("Cancelled", "Fund transfer was cancelled.")
+    messagebox.showinfo("Transaction Complete", success_message)
+    clear_form()
+
 
 def clear_form():
-    """Clears all fields and resets the form."""
-    from_account_combo.set("")
-    to_account_entry.delete(0, tk.END)
-    recipient_name_entry.delete(0, tk.END)
+    """Clears all the fields."""
+    sender_entry.delete(0, tk.END)
+    receiver_entry.delete(0, tk.END)
+    receiver_name_entry.delete(0, tk.END)
     amount_entry.delete(0, tk.END)
-    remarks_entry.delete(0, tk.END)
-    from_account_combo.focus_set()
+    mode_var.set("")
+    sender_entry.focus_set()
 
-# --- Main Application Window ---
+def exit_app():
+    """Exit confirmation."""
+    if messagebox.askyesno("Exit", "Do you want to close the application?"):
+        root.destroy()
+
+
+# --- Main Window Setup ---
+
 root = tk.Tk()
-root.title("Fund Transfer")
-root.geometry("450x450")
+root.title("Fund Transfer Window")
+root.geometry("500x500")
 root.resizable(False, False)
 
-# --- Use a Themed Frame for styling ---
-main_frame = ttk.Frame(root, padding="20")
-main_frame.pack(fill="both", expand=True)
+frame = ttk.Frame(root, padding="30 30 30 30")
+frame.pack(expand=True)
 
-# --- 1. Title ---
-title_label = ttk.Label(main_frame, text="Fund Transfer 💸", 
-                        font=("Arial", 20, "bold"))
-# columnspan=2 makes the label span across both columns
-title_label.grid(row=0, column=0, columnspan=2, pady=(0, 20))
+# --- Title ---
+title_label = ttk.Label(frame, text="Fund Transfer", font=("Arial", 22, "bold"))
+title_label.grid(row=0, column=0, columnspan=2, pady=15)
 
-# --- 2. From Account (Dropdown) ---
-from_account_label = ttk.Label(main_frame, text="From Account:")
-from_account_label.grid(row=1, column=0, sticky="w", padx=10, pady=5)
+# --- Sender Account ---
+sender_label = ttk.Label(frame, text="Sender Account No.:")
+sender_label.grid(row=1, column=0, sticky="w", padx=10, pady=8)
+sender_entry = ttk.Entry(frame, width=30, font=("Arial", 11))
+sender_entry.grid(row=1, column=1, padx=10, pady=8)
 
-# A sample list of accounts
-account_list = [
-    "Savings Account (***1234)",
-    "Checking Account (***5678)"
-]
+# --- Receiver Account ---
+receiver_label = ttk.Label(frame, text="Receiver Account No.:")
+receiver_label.grid(row=2, column=0, sticky="w", padx=10, pady=8)
+receiver_entry = ttk.Entry(frame, width=30, font=("Arial", 11))
+receiver_entry.grid(row=2, column=1, padx=10, pady=8)
 
-from_account_combo = ttk.Combobox(main_frame, values=account_list, 
-                                  width=35, state="readonly")
-from_account_combo.grid(row=1, column=1, padx=10, pady=5)
+# --- Receiver Name ---
+receiver_name_label = ttk.Label(frame, text="Receiver Name:")
+receiver_name_label.grid(row=3, column=0, sticky="w", padx=10, pady=8)
+receiver_name_entry = ttk.Entry(frame, width=30, font=("Arial", 11))
+receiver_name_entry.grid(row=3, column=1, padx=10, pady=8)
 
-# --- 3. Recipient Account Number (Text) ---
-to_account_label = ttk.Label(main_frame, text="Recipient Account No:")
-to_account_label.grid(row=2, column=0, sticky="w", padx=10, pady=5)
+# --- Amount ---
+amount_label = ttk.Label(frame, text="Amount (₹):")
+amount_label.grid(row=4, column=0, sticky="w", padx=10, pady=8)
+amount_entry = ttk.Entry(frame, width=30, font=("Arial", 11))
+amount_entry.grid(row=4, column=1, padx=10, pady=8)
 
-to_account_entry = ttk.Entry(main_frame, width=38)
-to_account_entry.grid(row=2, column=1, padx=10, pady=5)
+# --- Mode of Payment ---
+mode_label = ttk.Label(frame, text="Mode of Payment:")
+mode_label.grid(row=5, column=0, sticky="w", padx=10, pady=8)
+mode_var = tk.StringVar()
+mode_combo = ttk.Combobox(frame, textvariable=mode_var, width=28, font=("Arial", 11))
+mode_combo['values'] = ("UPI", "Net Banking", "NEFT", "IMPS")
+mode_combo.grid(row=5, column=1, padx=10, pady=8)
 
-# --- 4. Recipient Name (Text) ---
-recipient_name_label = ttk.Label(main_frame, text="Recipient Name:")
-recipient_name_label.grid(row=3, column=0, sticky="w", padx=10, pady=5)
+# --- Buttons ---
+transfer_button = ttk.Button(frame, text="Transfer", command=transfer_funds)
+transfer_button.grid(row=6, column=0, columnspan=2, pady=20, ipadx=10, ipady=5)
 
-recipient_name_entry = ttk.Entry(main_frame, width=38)
-recipient_name_entry.grid(row=3, column=1, padx=10, pady=5)
+clear_button = ttk.Button(frame, text="Clear", command=clear_form)
+clear_button.grid(row=7, column=0, columnspan=2, pady=5, ipadx=10, ipady=5)
 
-# --- 5. Amount (Text) ---
-amount_label = ttk.Label(main_frame, text="Amount (₹):")
-amount_label.grid(row=4, column=0, sticky="w", padx=10, pady=5)
+exit_button = ttk.Button(frame, text="Exit", command=exit_app)
+exit_button.grid(row=8, column=0, columnspan=2, pady=10, ipadx=10, ipady=5)
 
-amount_entry = ttk.Entry(main_frame, width=38)
-amount_entry.grid(row=4, column=1, padx=10, pady=5)
-
-# --- 6. Remarks (Text) ---
-remarks_label = ttk.Label(main_frame, text="Remarks (Optional):")
-remarks_label.grid(row=5, column=0, sticky="w", padx=10, pady=5)
-
-remarks_entry = ttk.Entry(main_frame, width=38)
-remarks_entry.grid(row=5, column=1, padx=10, pady=5)
-
-# --- 7. Buttons (Frame) ---
-# A new frame to hold the buttons
-button_frame = ttk.Frame(main_frame)
-button_frame.grid(row=6, column=0, columnspan=2, pady=30)
-
-# Transfer Button
-transfer_button = ttk.Button(button_frame, text="Transfer Now", command=perform_transfer)
-transfer_button.pack(side="left", padx=15, ipadx=10, ipady=5)
-
-# Cancel Button
-cancel_button = ttk.Button(button_frame, text="Cancel", command=clear_form)
-cancel_button.pack(side="left", padx=15, ipadx=10, ipady=5)
-
-# --- Run the Application ---
+# --- Run Application ---
 root.mainloop()
