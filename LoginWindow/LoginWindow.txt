@@ -1,0 +1,39 @@
+🧠 Explanation (For Viva / Oral Questions)
+
+| Concept            | Explanation                                                           |
+| ------------------ | --------------------------------------------------------------------- |
+| **Tkinter**        | A built-in Python library for building GUIs.                          |
+| **ttk**            | Themed Tkinter widgets for a modern look.                             |
+| **messagebox**     | Used to display popup messages (info, warning, error).                |
+| **Entry widgets**  | Used to take input from the user (username, password).                |
+| **Button widgets** | Used to perform actions on click (Login, Clear).                      |
+| **show="*"**       | Hides password characters for security.                               |
+| **grid()**         | Geometry manager used for positioning widgets in a table-like layout. |
+| **pack()**         | Used to place widgets in the main window.                             |
+| **Validation**     | Checks if fields are empty or if credentials are correct.             |
+
+💬 Possible Oral / Viva Questions with Answers
+
+Q: What is Tkinter in Python?
+A: Tkinter is Python’s standard GUI library used to create graphical user interfaces.
+
+Q: What is the purpose of the Entry widget?
+A: The Entry widget allows users to input single-line text data such as username or password.
+
+Q: How do you hide a password in Tkinter?
+A: By setting the show="*" property in the Entry widget.
+
+Q: What is the function of messagebox?
+A: It displays pop-up messages such as information, warnings, or error alerts.
+
+Q: What is the difference between pack() and grid()?
+A: pack() organizes widgets in blocks before placing them, while grid() places them in a tabular layout using rows and columns.
+
+Q: How can you link this login page to a real database?
+A: By importing a database library (like sqlite3 or mysql.connector) and validating user credentials using a SQL query.
+
+Q: What is the purpose of the command parameter in a button?
+A: It specifies which function to execute when the button is clicked.
+
+Q: Can Tkinter windows be resized?
+A: Yes, but you can disable resizing with root.resizable(False, False).
