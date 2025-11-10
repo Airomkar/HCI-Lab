@@ -1,1 +1,39 @@
+🧠 Explanation (For Viva / Oral Exam)
 
+| **Widget / Concept**                                        | **Explanation**                                                            |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Tkinter**                                                 | Python’s built-in library for designing GUI applications.                  |
+| **Label**                                                   | Displays static text like field names or instructions.                     |
+| **Entry**                                                   | Takes single-line input from the user (e.g., Name, Email).                 |
+| **Radiobutton**                                             | Used for selecting one option from multiple (e.g., Good, Average).         |
+| **Checkbutton**                                             | Allows multiple selections (e.g., Taste, Cleanliness).                     |
+| **Text Widget**                                             | Used for multi-line input (like comments or suggestions).                  |
+| **messagebox**                                              | Displays messages like “Success” or “Error” pop-ups.                       |
+| **Combining Widgets**                                       | Together, they form a structured form for collecting feedback.             |
+| **Functions (`submit_feedback`, `clear_form`, `exit_app`)** | Handle user actions like submitting, clearing data, or closing the window. |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is the purpose of Tkinter in Python?
+A: Tkinter is used to create GUI-based desktop applications.
+
+Q: What is the difference between Entry and Text widgets?
+A: Entry is for single-line input; Text is for multi-line input.
+
+Q: What is the use of a Checkbutton?
+A: It allows the user to select multiple options independently.
+
+Q: What is the use of a Radiobutton?
+A: It allows the user to choose only one option from a group.
+
+Q: How can we display success or error messages?
+A: By using messagebox.showinfo() or messagebox.showerror().
+
+Q: What does .get() do in Tkinter?
+A: It retrieves the value entered or selected by the user in a widget.
+
+Q: What happens when you click “Clear”?
+A: It clears all input fields and resets the form.
+
+Q: Can this feedback form data be saved?
+A: Yes, it can be saved into a file or database using Python file handling or sqlite3.
