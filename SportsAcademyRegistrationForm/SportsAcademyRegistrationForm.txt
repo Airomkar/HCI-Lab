@@ -1,1 +1,199 @@
+## 🎯 **Viva Questions and Answers for Sports Registration Form**
 
+### 🧩 **Basic Tkinter Concepts**
+
+**Q1. What is Tkinter in Python?**
+**A:** Tkinter is Python’s standard library used for creating **graphical user interfaces (GUIs)**. It provides various widgets like `Label`, `Button`, `Entry`, `Listbox`, and `Checkbutton` to build interactive windows.
+
+---
+
+**Q2. Why do we write `root.mainloop()` at the end of the program?**
+**A:** It starts the Tkinter **event loop**, which keeps the window open and listens for user interactions (like button clicks) until the user closes it.
+
+---
+
+**Q3. What is the purpose of `ttk` in this program?**
+**A:** `ttk` stands for **Themed Tkinter Widgets**. It gives widgets (like `Label`, `Button`, `Entry`) a **modern and polished look** compared to basic Tkinter widgets.
+
+---
+
+**Q4. What is the function of `messagebox` in this program?**
+**A:** The `messagebox` module is used to display **pop-up dialogs** like success messages, errors, or confirmations (e.g., “Registered Successfully” or “Please fill all fields”).
+
+---
+
+**Q5. What does `root.geometry("400x350")` do?**
+**A:** It sets the **width and height** of the window to 400 pixels wide and 350 pixels tall.
+
+---
+
+### 🧠 **Widgets & Their Uses**
+
+**Q6. What is the purpose of a `Label` widget?**
+**A:** The `Label` widget displays **static text** (like “Name”, “Phone Number”, etc.) on the GUI.
+
+---
+
+**Q7. What is an `Entry` widget used for?**
+**A:** It is used for **single-line text input**, such as entering a name or phone number.
+
+---
+
+**Q8. What does the `Listbox` widget do in this program?**
+**A:** The `Listbox` displays a list of sports (Football, Basketball, etc.) for the user to **select one** from.
+
+---
+
+**Q9. How do you insert items into a `Listbox`?**
+**A:** Using the `insert()` method, like:
+
+```python
+sport_listbox.insert(tk.END, "Football")
+```
+
+---
+
+**Q10. What is the function of a `Checkbutton` widget here?**
+**A:** It allows the user to **agree to the terms and conditions** by checking a box. It stores True/False (1/0) in the variable linked to it (`terms_var`).
+
+---
+
+**Q11. What is `BooleanVar()` used for?**
+**A:** It is a special Tkinter variable type that holds **True or False** values, used with `Checkbutton` widgets.
+
+---
+
+### ⚙️ **Functions & Logic**
+
+**Q12. What happens when the “Submit” button is clicked?**
+**A:** The `submit_form()` function is called. It:
+
+1. Collects the entered data.
+2. Checks if all fields are filled.
+3. Displays a **success message** if valid, or an **error message** if not.
+
+---
+
+**Q13. What happens if the user doesn’t select a sport or doesn’t agree to terms?**
+**A:** The program shows an error popup using `messagebox.showerror()` asking the user to fill in the missing details.
+
+---
+
+**Q14. What does the `clear_form()` function do?**
+**A:** It clears all input fields, deselects the listbox, and unchecks the terms checkbox, resetting the form to its initial state.
+
+---
+
+**Q15. How does the code get the selected item from the Listbox?**
+**A:**
+
+```python
+sport_index = sport_listbox.curselection()[0]
+sport = sport_listbox.get(sport_index)
+```
+
+`curselection()` returns the index of the selected item, and `get()` retrieves the text of that item.
+
+---
+
+**Q16. What happens if the user doesn’t select any item from the Listbox?**
+**A:** The program catches the `IndexError` using a `try-except` block and sets `sport = "Not Selected"`.
+
+---
+
+**Q17. Why do we use `curselection()` with `[0]`?**
+**A:** Because `curselection()` returns a tuple of selected indices (like `(0,)`). We use `[0]` to access the first (and only) selected item.
+
+---
+
+### 💻 **Layout & Design**
+
+**Q18. What is the purpose of the `grid()` method?**
+**A:** It is a geometry manager that arranges widgets in **rows and columns**, similar to a table layout.
+
+---
+
+**Q19. What is the use of `main_frame = ttk.Frame(root, padding="20")`?**
+**A:** A `Frame` acts as a **container widget** to group other widgets together. Here, padding adds space around the contents for better appearance.
+
+---
+
+**Q20. What does `root.resizable(False, False)` do?**
+**A:** It **disables window resizing**, preventing users from changing the window’s dimensions.
+
+---
+
+### 🧾 **Validation & Error Handling**
+
+**Q21. Why do we check `if not name or sport == "Not Selected":`?**
+**A:** To ensure the user doesn’t leave the name field empty and selects at least one sport before submitting.
+
+---
+
+**Q22. Why is a `try-except` block used when getting the selected sport?**
+**A:** To **handle the error safely** if the user hasn’t selected any sport from the Listbox (avoiding program crash).
+
+---
+
+**Q23. What happens if the user doesn’t agree to the terms and conditions?**
+**A:** The program shows an error message and stops registration until the checkbox is selected.
+
+---
+
+### 🧩 **General Concepts**
+
+**Q24. What is `tk.END` used for in the code?**
+**A:** It represents the **end position** in a widget like `Listbox` or `Entry`. Used to insert or delete text till the end.
+
+---
+
+**Q25. Why do we use `focus_set()` at the end of `clear_form()`?**
+**A:** To move the typing cursor automatically to the first input field (Name) after clearing the form.
+
+---
+
+**Q26. Can we select multiple sports in this Listbox?**
+**A:** No, because by default it allows **single selection**. To enable multiple selections, we can set `selectmode="multiple"` when creating the Listbox.
+
+---
+
+**Q27. Can we connect this form to a database? How?**
+**A:** Yes, we can store form data using libraries like `sqlite3` or `mysql.connector` and execute SQL INSERT queries to save registration data.
+
+---
+
+**Q28. How can we make the phone number field accept only numbers?**
+**A:** We can validate using an if-condition like:
+
+```python
+if not phone.isdigit():
+    messagebox.showerror("Error", "Phone number must contain digits only.")
+```
+
+---
+
+**Q29. How can you display the selected sport automatically in a Label?**
+**A:** By binding a function to the Listbox selection event using:
+
+```python
+sport_listbox.bind("<<ListboxSelect>>", show_selected)
+```
+
+---
+
+**Q30. What are the advantages of using Tkinter for small applications?**
+**A:**
+
+* It’s built into Python (no extra installation).
+* Easy to learn and use.
+* Cross-platform (works on Windows, macOS, Linux).
+* Perfect for small desktop tools like forms and calculators.
+
+---
+
+✅ **Bonus Tip for Viva:**
+If the examiner asks you,
+
+> “Explain how this program works step by step,”
+> you can summarize:
+> “The user enters their name and phone number, selects a sport from the listbox, and agrees to the terms. When they click Submit, the program validates the inputs and shows a success popup. If any field is missing, an error message appears. The Clear button resets the form.”
