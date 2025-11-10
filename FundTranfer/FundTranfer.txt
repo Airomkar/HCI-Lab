@@ -1,1 +1,37 @@
+🧠 Explanation (For Viva / Oral Exam)
 
+| Concept              | Explanation                                                           |
+| -------------------- | --------------------------------------------------------------------- |
+| **Tkinter**          | Used to design desktop GUI applications in Python.                    |
+| **Entry widget**     | Allows user input (text boxes for account, name, amount).             |
+| **Combobox**         | Dropdown menu for payment mode selection.                             |
+| **messagebox**       | Used for success and error notifications.                             |
+| **Validation**       | Ensures no fields are empty, amount is positive, and accounts differ. |
+| **Button (command)** | Executes the linked function when clicked.                            |
+| **`root.destroy()`** | Closes the application safely.                                        |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is the purpose of Tkinter in Python?
+A: Tkinter is Python’s standard library for creating graphical user interfaces.
+
+Q: What is the use of the Combobox widget?
+A: It allows users to select an option from a dropdown list (e.g., Payment Mode).
+
+Q: How can we display messages in a popup box?
+A: By using the messagebox module, e.g., messagebox.showinfo() or messagebox.showerror().
+
+Q: How do you validate if the entered amount is numeric?
+A: By using the .isdigit() function in Python.
+
+Q: Why do we use clear_form() in GUI programs?
+A: To reset or clear all input fields after completing or canceling a transaction.
+
+Q: How can we prevent transferring money to the same account?
+A: By checking if the sender and receiver account numbers are equal and showing an error message.
+
+Q: Can we connect this form to a real database?
+A: Yes, using libraries like sqlite3 or mysql.connector to store and retrieve transaction data.
+
+Q: What happens if you press the Exit button?
+A: It calls the exit_app() function, which asks for confirmation and closes the window.
