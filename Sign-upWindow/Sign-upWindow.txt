@@ -1,1 +1,39 @@
+🧠 Explanation (For Viva / Oral Exam)
 
+| **Concept / Widget** | **Explanation**                                                     |
+| -------------------- | ------------------------------------------------------------------- |
+| **Tkinter**          | Python’s built-in library for GUI development.                      |
+| **Label**            | Displays text like "Full Name", "Email", etc.                       |
+| **Entry**            | Used for single-line input fields.                                  |
+| **Radiobutton**      | Used to select gender (one option only).                            |
+| **Checkbutton**      | Used for accepting Terms & Conditions.                              |
+| **show="*"**         | Hides password text for privacy.                                    |
+| **messagebox**       | Displays pop-up messages for success or error.                      |
+| **Validation**       | Ensures all fields are filled, passwords match, and terms accepted. |
+| **Button (command)** | Executes a function (e.g., Register, Clear, Exit).                  |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is Tkinter used for?
+A: Tkinter is a Python library used to build desktop-based graphical user interfaces.
+
+Q: What is the use of an Entry widget?
+A: It allows the user to input single-line text such as name or password.
+
+Q: Why do we use show="*" in password fields?
+A: To hide the actual password characters for security.
+
+Q: What is the function of a Checkbutton?
+A: It allows users to select or agree to conditions (like Terms & Conditions).
+
+Q: How can you validate form inputs in Tkinter?
+A: By using simple conditional checks inside the function linked to the button (e.g., if not name:).
+
+Q: What is the difference between pack() and grid() methods?
+A: pack() arranges widgets in blocks, while grid() places them in rows and columns.
+
+Q: Can this Sign-Up window be connected to a database?
+A: Yes, using Python’s sqlite3 or mysql.connector library.
+
+Q: What does root.mainloop() do?
+A: It keeps the GUI window running and listens for user actions.
