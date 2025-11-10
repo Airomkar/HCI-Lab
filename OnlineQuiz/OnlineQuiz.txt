@@ -1,1 +1,38 @@
+🧠 Explanation (For Viva / Oral Exam)
 
+| **Concept / Widget** | **Explanation**                                                  |
+| -------------------- | ---------------------------------------------------------------- |
+| **Tkinter**          | Python library used for creating GUI-based desktop applications. |
+| **Label**            | Displays text such as quiz questions or titles.                  |
+| **Radiobutton**      | Lets the user select one option from multiple choices.           |
+| **Text Widget**      | Allows user input of multi-line text (for comments or feedback). |
+| **messagebox**       | Displays results or confirmation dialogs (e.g., quiz score).     |
+| **StringVar()**      | Stores selected values from Radiobuttons dynamically.            |
+| **grid()**           | Used to place widgets in a structured layout.                    |
+| **mainloop()**       | Starts and keeps the GUI running until the user exits.           |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is Tkinter used for?
+A: Tkinter is Python’s built-in library used to design GUI applications.
+
+Q: Which widget is used for multiple-choice options?
+A: Radiobutton (for single-choice) and Checkbutton (for multi-choice).
+
+Q: How can we store user selections in Tkinter?
+A: By using variables like StringVar() or IntVar().
+
+Q: What does the mainloop() function do?
+A: It keeps the window open and listens for user actions.
+
+Q: What is the use of the messagebox?
+A: It shows pop-up windows for information, warnings, or results.
+
+Q: What is the difference between Label and Text widgets?
+A: Label shows static text, while Text allows multi-line user input.
+
+Q: How can you add a scoring system in a quiz app?
+A: By comparing the selected answer with the correct answer and maintaining a score count.
+
+Q: Can you make this quiz dynamic from a database or file?
+A: Yes, by reading questions and options from a database or text/JSON file.
