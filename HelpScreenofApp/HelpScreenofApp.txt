@@ -1,1 +1,39 @@
+🧠 Explanation (For Viva / Oral Exam)
 
+| **Concept / Widget**  | **Explanation**                                                 |
+| --------------------- | --------------------------------------------------------------- |
+| **Tkinter**           | Python’s GUI library used to design the Help screen.            |
+| **Label**             | Displays static text, such as the title or instructions.        |
+| **Text Widget**       | Displays large multi-line text (used for help content).         |
+| **Scrollbar**         | Allows scrolling through long help content.                     |
+| **Frame**             | Used to group widgets logically (helps in layout design).       |
+| **Button**            | Performs actions like "Contact Support" or "Close Help".        |
+| **messagebox**        | Displays information or confirmation dialogs.                   |
+| **state='disabled'**  | Makes the Text widget read-only (so user can’t edit help text). |
+| **pack() and grid()** | Geometry managers used to arrange widgets on the screen.        |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is Tkinter used for in Python?
+A: Tkinter is used to create graphical user interfaces (GUIs) for desktop applications.
+
+Q: Why do we use the Text widget in the Help screen?
+A: The Text widget allows displaying large multi-line help or instruction content with scroll support.
+
+Q: What is the function of a Scrollbar widget?
+A: It allows users to scroll through content that doesn’t fit within the visible window.
+
+Q: How do you make a Text widget read-only?
+A: By setting help_text.config(state="disabled").
+
+Q: What is the use of messagebox?
+A: It is used to show pop-up messages like information, warnings, or confirmations.
+
+Q: What does the pack() method do?
+A: It arranges widgets in blocks before placing them in the window.
+
+Q: How can you exit from a Tkinter window safely?
+A: By calling root.destroy() inside a function.
+
+Q: How can this Help Screen be reused in another app?
+A: Only the text content inside the help_content variable needs to be replaced with that app’s details.
