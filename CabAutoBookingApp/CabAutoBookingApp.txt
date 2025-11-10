@@ -1,0 +1,37 @@
+🧠 Explanation (For Viva / Oral Exam)
+
+| Concept                     | Explanation                                                                                    |
+| --------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Tkinter**                 | Standard Python library for creating GUI applications.                                         |
+| **Combobox (ttk.Combobox)** | Dropdown menu used to select the vehicle type (Cab/Auto).                                      |
+| **Entry Widget**            | Used to get text input for name, locations, date, and time.                                    |
+| **messagebox**              | Used to display pop-up success/error messages.                                                 |
+| **Validation**              | Ensures all fields are filled before booking.                                                  |
+| **`datetime` module**       | Used to auto-fill current date and time in input boxes.                                        |
+| **Functions**               | `book_cab()` handles booking, `clear_form()` resets input fields, `exit_app()` closes the app. |
+
+💬 Possible Oral / Viva Questions
+
+Q: What is the use of Tkinter in Python?
+A: Tkinter is used to create graphical user interfaces (GUIs) for desktop applications.
+
+Q: What is a Combobox used for?
+A: A Combobox allows users to choose from a dropdown list of options.
+
+Q: How can we display popup messages in Tkinter?
+A: By using the messagebox module, such as messagebox.showinfo() or messagebox.showerror().
+
+Q: How can we close the Tkinter window using code?
+A: By calling root.destroy().
+
+Q: What is the difference between Entry and Combobox widgets?
+A: Entry allows users to type free text; Combobox allows selection from predefined options.
+
+Q: How do you ensure all fields are filled before booking?
+A: By checking if not all([...]) before proceeding.
+
+Q: What module is used to get the current date and time?
+A: The datetime module.
+
+Q: Can we store the booking details in a file or database?
+A: Yes, we can use Python file handling or sqlite3/MySQL database connection for permanent storage.
